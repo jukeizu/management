@@ -8,6 +8,7 @@ RUN echo "nobody:x:100:101:/" > passwd
 
 FROM scratch
 COPY --from=build /go/src/github.com/jukeizu/management/passwd /etc/passwd
+COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=build --chown=100:101 /go/src/github.com/jukeizu/management/bin/management .
 USER nobody
 ENTRYPOINT ["./management"]
