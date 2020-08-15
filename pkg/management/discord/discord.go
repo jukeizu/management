@@ -34,6 +34,9 @@ func NewDefaultService(logger zerolog.Logger, token string) (*DefaultService, er
 	session.LogLevel = discordgo.LogInformational
 	session.State.MaxMessageCount = 20
 
+	// Enable all intents to include privileged intents
+	session.Identify.Intents = discordgo.MakeIntent(discordgo.IntentsAll)
+
 	dh.session = session
 	return &dh, nil
 }
