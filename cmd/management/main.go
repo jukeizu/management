@@ -43,7 +43,7 @@ func main() {
 
 	logger := zerolog.New(os.Stdout).With().Timestamp().
 		Str("instance", xid.New().String()).
-		Str("component", "voting").
+		Str("component", "management").
 		Str("version", Version).
 		Logger()
 
